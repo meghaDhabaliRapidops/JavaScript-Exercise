@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+         td{
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <input id="row" placeholder="Enter rows"></input>
+    <input id="column" placeholder="Enter columns"></input>
+    <button onClick=createTable()>Create Table</button>
+</body>
+<script>
+function createTable() {
+var row = document.getElementById("row").value;
+var column = document.getElementById("column").value;
+ console.log(row);
+ console.log(column);
+    var container=document.createElement('div');
+    container.setAttribute('class','container');
+    
+    var table=document.createElement('table');
+    table.setAttribute('class','table');
+    var tbody=document.createElement('tbody');
+        for(var k=1; k<=row;k++) {
+            var tbodytr=document.createElement('tr');
+
+            for(var i=1; i<=column;i++) {
+                var td=createtrth('td'," ");              
+                tbodytr.append(td);                
+            }
+            
+            tbody.append(tbodytr);
+            
+        }
+        table.append(tbody);
+        container.append(table);
+        document.body.append(container);
+
+}
+
+function createtrth(elementname,value="",className="") {
+    var td=document.createElement(elementname);        
+    td.setAttribute('class',className);
+    td.innerHTML = value;
+    return td;
+}
+    
+    </script>
+
+</html>
